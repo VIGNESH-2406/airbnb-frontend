@@ -1,6 +1,6 @@
 import { useRouter } from "next/dist/client/router";
 import Image from "next/image";
-import map from "../components/Map";
+
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { format } from "date-fns";
