@@ -18,7 +18,7 @@ function Search({ searchResults }) {
   };
 
   const { location, startDate, endDate, noOfGuests } = router.query;
-
+  console.log(startDate);
   /* here as we know we need create a fn to show the calculated total price by the number of
      days selected in the previous page */
   const totalPrice = (price) => {
@@ -52,7 +52,7 @@ place as well the manipulated state is carried to next page  */
   const formattedEndDate = format(new Date(endDate), "dd MMM yy");
   const range = `${formattedStartDate} - ${formattedEndDate}`;
 
-  console.log(router.query);
+  // console.log(router.query);
 
   return (
     <div>

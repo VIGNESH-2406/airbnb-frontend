@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { format } from "date-fns";
+// import { format } from "date-fns";
 import ImageCard from "../components/ImageCard";
 import { useRouter } from "next/dist/client/router";
 import { useState } from "react";
@@ -21,6 +21,8 @@ function checkoutPage() {
   const { id, price, startDate, endDate, location, noOfGuests, noOfDays } =
     router.query;
 
+  console.log(startDate);
+
   const book = () => {
     bookHotel({
       token: sessionStorage.getItem("auth"),
@@ -28,8 +30,18 @@ function checkoutPage() {
     });
   };
 
-  const formattedStartDate = format(new Date(startDate), "dd MMM yy");
-  const formattedEndDate = format(new Date(endDate), "dd MMM yy");
+  // const formattedStartDate = format(new Date(startDate), "dd MMM yy");
+  // const formattedEndDate = format(new Date(endDate), "dd MMM yy");
+
+  var options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  var sd = new Date(startDate);
+  var ed = new Date(endDate);
+  const formattedStartDate = sd.toLocaleDateString("en-US", options);
+  const formattedEndDate = ed.toLocaleDateString("en-US", options);
   const range = `${formattedStartDate} - ${formattedEndDate}`;
 
   return (
