@@ -6,14 +6,9 @@ import MediumCard from "../components/MediumCard";
 import LargeCard from "../components/LargeCard";
 import Footer from "../components/Footer";
 import { useRouter } from "next/dist/client/router";
-// import WhishList from "./wishList";
 
 export default function Home({ exploreData, cardsData }) {
   const router = useRouter();
-
-  const wishListPage = () => {
-    router.push("/wishList");
-  };
 
   return (
     <div className="">
