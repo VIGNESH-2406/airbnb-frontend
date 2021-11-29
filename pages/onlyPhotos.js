@@ -2,6 +2,7 @@ import React from "react";
 import { Router, useRouter } from "next/dist/client/router";
 import OnlyPhotosCard from "../components/OnlyPhotosCard";
 import image from "next/image";
+import Header from "../components/Header";
 
 function onlyPhotos({ cardsData }) {
   const router = useRouter();
@@ -9,12 +10,12 @@ function onlyPhotos({ cardsData }) {
 
   return (
     <div>
-      <h1>only photos CARD</h1>
+      <Header />
 
-      <div className="h-50 w-52 ">
+      <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
         {cardsData.map(({ _id, name, data }) => (
           <OnlyPhotosCard
-            className=""
+            className=" ml-10"
             img={`${process.env.NEXT_PUBLIC_API_URL}/hotel/images/${id}/${_id}`}
           />
         ))}
