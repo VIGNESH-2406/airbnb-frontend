@@ -24,16 +24,16 @@ function Banner() {
       <Image
         src="https://links.papareact.com/0fm"
         layout="fill"
-        objectFit="cover"
+        objectFit="fit"
       />
       <div className="absolute top-1/2 w-full text-center">
-        <h1 className=" text-2xl sm:text-lg font-semibold text-blue-900 ">
+        <h1 className=" text-2xl sm:text-lg font-semibold text-purple-900 ">
           Not sure where to go? perfect.
         </h1>
 
         <button
           onClick={allPicsDisplay}
-          className="text-purple-500
+          className="text-purple-900
          bg-white px-10 py-4 shadow-md rounded-full 
          font-bold my-3 hover:shadow-xl active:scale-90 transition duration-150"
         >

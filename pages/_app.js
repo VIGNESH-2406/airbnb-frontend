@@ -6,7 +6,7 @@ import progressBar from "@badrap/bar-of-progress";
 
 const progress = new progressBar({
   size: 4,
-  color: "#FE595E",
+  color: "#4B0082",
   className: "z-50",
   delay: 100,
 });

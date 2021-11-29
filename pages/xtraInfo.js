@@ -38,7 +38,7 @@ function test({ cardsData, hotelData, startDate, endDate }) {
       (1000 * 3600 * 24);
     // setPrice(diff > 0 ? price * diff : price);
 
-    return diff;
+    return diff <= 0 ? 1 : diff;
   };
   let { id } = router.query;
 
@@ -62,6 +62,9 @@ function test({ cardsData, hotelData, startDate, endDate }) {
   const onlyPics = () => {
     router.push({
       pathname: "/onlyPhotos",
+      query: {
+        id,
+      },
     });
   };
 

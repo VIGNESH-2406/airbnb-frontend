@@ -24,7 +24,7 @@ function allPhotos({ searchResults }) {
   console.log(hotels);
   // const [type, setType] = useState({ title });
 
-  const searchHotel = (id) => {
+  const searchHotel = (id, price) => {
     console.log(id, "data");
     router.push({
       pathname: "/xtraInfo",
@@ -33,6 +33,7 @@ function allPhotos({ searchResults }) {
         location: location,
         startDate: new Date().toISOString(),
         endDate: new Date().toISOString(),
+        price,
       },
     });
   };
@@ -46,12 +47,9 @@ function allPhotos({ searchResults }) {
     <div>
       <Header />
       <div
-        // onClick={<Modal />}
-        className=" color  hidden lg:inline-flex ml-5 mt-5 space-x-3 text-gray-800 whitespace-nowrap"
+        // onClick={<Modal />}s
+        className=" relative color lg:h-10 w-20 sm:h-2 w-40 gap-5 lg:inline-flex ml-5 mt-5 space-x-3 text-gray-800 whitespace-nowrap"
       >
-        {/* <p Onclick={allPicsDisplay} className="button">
-          Types of place
-        </p> */}
         <p
           onClick={() => filterHotel("entire homes")}
           className="button bg-gray-300"
@@ -73,7 +71,7 @@ function allPhotos({ searchResults }) {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6  ">
-        {hotels.map(({ image, location, title, content, star, _id }) => (
+        {hotels.map(({ price, image, location, title, content, star, _id }) => (
           <ImageCard
             searchHotel={searchHotel}
             key={_id}
@@ -81,6 +79,7 @@ function allPhotos({ searchResults }) {
             img={`${process.env.NEXT_PUBLIC_API_URL}/hotel/image/${_id}`}
             location={location}
             title={title}
+            price={price}
           />
         ))}
       </div>

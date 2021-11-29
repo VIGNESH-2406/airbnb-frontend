@@ -9,7 +9,7 @@ function MediumCard({ img, title }) {
       pathname: "/allPhotos",
       query: {
         // id: id,
-        title: title,
+        title: title === "Pet allowed" ? undefined : title,
       },
     });
   };

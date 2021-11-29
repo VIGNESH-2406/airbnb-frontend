@@ -1,12 +1,12 @@
 import Image from "next/image";
 
-function ImageCard({ img, title, location, searchHotel, id }) {
+function ImageCard({ price, img, title, location, searchHotel, id }) {
   return (
     <div
       className="mt-10  py-7 px-2 pr-4 border-b  cursor-pointer hover:opacity-80 
     hover:shadow-lg transition duration-200 ease-out first:border-t "
       onClick={() => {
-        searchHotel(id);
+        searchHotel(id, price);
       }}
     >
       <div className=" ">
