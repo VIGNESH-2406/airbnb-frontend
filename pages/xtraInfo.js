@@ -181,7 +181,7 @@ function test({ cardsData, hotelData, startDate, endDate }) {
                       {/*header*/}
 
                       <div className="relative p-6 flex-auto">
-                        <h3 className="text-red-300  text-3xl font-semibold my-3">
+                        <h3 className="text-red-700  text-3xl font-semibold my-3">
                           What this place offers
                         </h3>{" "}
                         <div className="border-b w-30 pt-2" />
@@ -203,14 +203,14 @@ function test({ cardsData, hotelData, startDate, endDate }) {
                         <p className="my-4 text-1xl">
                           Luggage drop-off allowed
                         </p>
-                        <p className="my-4 text-1xl">Smoking allowed</p>
+                        <p className="my-4 text-1xl">Smoking-Toking allowed</p>
                         <p className="my-4 text-1xl">Long-term stays allowed</p>
                         <p className="my-4 text-1xl">First aid kit</p>
                       </div>
                       {/*footer*/}
                       <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
                         <button
-                          className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                          className="text-purple-900 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                           type="button"
                           onClick={() => setShowModal(false)}
                         >

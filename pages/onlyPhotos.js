@@ -11,7 +11,7 @@ function onlyPhotos({ cardsData }) {
   return (
     <div>
       <Header />
-
+      <h1 className="ml-10 text-red-400 font-bold text-2xl">Photo Gallery</h1>
       <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
         {cardsData.map(({ _id, name, data }) => (
           <OnlyPhotosCard

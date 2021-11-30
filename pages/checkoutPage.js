@@ -108,9 +108,7 @@ function checkoutPage() {
 
               <div className="border-b  w-20 pt-5" />
 
-              <h3 class="text-3xl font-semibold pl-3 py-5">
-                Your trip to {location}
-              </h3>
+              <h3 class="text-3xl font-semibold pl-3 py-5">Your trip on</h3>
               <h6 class="text-2xl font-semibold pl-3 py-3"> Dates </h6>
               <p class="mt-1 pl-6 text-lg leading-relaxed text-blueGray-500">
                 {range}
@@ -122,7 +120,7 @@ function checkoutPage() {
                 </p>
               </div>
               <h3 class="text-3xl font-semibold pl-3 py-5">Pay with</h3>
-              <li class="py-2">
+              <li class="">
                 <div class="flex items-center">
                   <div class="relative">
                     <h3 class="py-5 text-2xl font-semibold">
