@@ -77,14 +77,14 @@ function Header({ placeholder }) {
       </div>
       {/* Middle- searchBar */}
       <div
-        className="flex items-center md:border-2 rounded-full py-2 focus:outline-none
+        className="flex items-center md:border-2 border-opacity-0 rounded-full py-2 focus:outline-white
       md:shadow-sm"
       >
         <input
-          className="focus:outline-none"
+          className="focus:outline-none "
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-          className=" custom-outline outline-none  flex-grow pl-5 bg-transparent  text-sm text-gray-600 placeholder-gray-400"
+          className=" custom-outline outline-none  flex-grow pl-5 bg-transparent  text-sm font-semibold  text-gray-900 placeholder-gray-800"
           type="text"
           placeholder={placeholder || "start your search"}
         />
