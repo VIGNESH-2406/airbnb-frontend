@@ -23,7 +23,17 @@ export default function login() {
 
       sessionStorage.setItem("auth", data.token);
       sessionStorage.setItem("user", JSON.stringify(data.user));
-      data.user.isAdmin ? router.push("/admin") : router.push("/");
+      console.log(router.pathname);
+      if (router.pathname === "/login") {
+        data.user.isAdmin ? router.push("/admin") : router.push("/");
+      } else {
+        console.log("hey");
+        router.push({
+          pathname: router.pathname,
+          query: router.query,
+        });
+        location.reload();
+      }
       console.log(data);
     } catch (error) {
       toast.error(error, "err here");

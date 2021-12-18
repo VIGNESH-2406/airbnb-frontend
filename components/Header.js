@@ -22,6 +22,8 @@ function Header({ placeholder }) {
   const router = useRouter();
 
   const logout = () => {
+    sessionStorage.removeItem("user");
+    sessionStorage.removeItem("auth");
     router.push("/login");
   };
 
