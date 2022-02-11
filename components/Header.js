@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   GlobeAltIcon,
@@ -19,6 +19,7 @@ function Header({ placeholder }) {
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
   const [showModal, setShowModal] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const router = useRouter();
 
   const logout = () => {
@@ -61,6 +62,12 @@ function Header({ placeholder }) {
     setEndDate(ranges.selection.endDate);
   };
 
+  useEffect(() => {
+    setIsAuthenticated(
+      sessionStorage.getItem("user") && sessionStorage.getItem("auth")
+    );
+  });
+
   return (
     <header className="sticky top-50 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
       {/* <h1>I am the Header</h1> */}
@@ -83,10 +90,10 @@ function Header({ placeholder }) {
       md:shadow-sm"
       >
         <input
-          className="focus:outline-none "
+          className="focus:outline-none focus:ring-0"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-          className=" custom-outline outline-none  flex-grow pl-5 bg-transparent  text-sm font-semibold  text-gray-900 placeholder-gray-800"
+          className="focus:ring-0  custom-outline outline-none  flex-grow pl-5 bg-transparent  text-sm font-semibold  text-gray-900 placeholder-gray-800"
           type="text"
           placeholder={placeholder || "start your search"}
         />
@@ -138,12 +145,21 @@ function Header({ placeholder }) {
                     <p className="my-4 text-1xl font-semibold  button">
                       Account settings
                     </p>
-                    <h3
-                      onClick={logout}
-                      className="text-1xl font-semibold button"
-                    >
-                      Logout
-                    </h3>
+                    {isAuthenticated ? (
+                      <h3
+                        onClick={logout}
+                        className="text-1xl font-semibold button"
+                      >
+                        logout
+                      </h3>
+                    ) : (
+                      <h3
+                        onClick={() => router.push("/login")}
+                        className="text-1xl font-semibold button"
+                      >
+                        login
+                      </h3>
+                    )}
                   </div>
                   {/*footer*/}
                   <div className="flex items-end justify-items-end p-6 border-t border-solid border-blueGray-200 rounded-b">

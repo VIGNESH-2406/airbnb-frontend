@@ -5,11 +5,12 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { format } from "date-fns";
 import InfoCard from "../components/InfoCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // const router = useRouter();
 
 function Search({ searchResults }) {
-  // const [price, setPrice] = useState(0);
+  const [sort, setSort] = useState(true);
+  const [sortedPrice, setSortedPrice] = useState(searchResults);
 
   const router = useRouter();
 
@@ -18,7 +19,7 @@ function Search({ searchResults }) {
   };
 
   const { location, startDate, endDate, noOfGuests } = router.query;
-  console.log(startDate);
+
   /* here as we know we need create a fn to show the calculated total price by the number of
      days selected in the previous page */
   const totalPrice = (price) => {
@@ -34,7 +35,7 @@ and the calculated price which is done by totalPrice fn and also total price is 
 place as well the manipulated state is carried to next page  */
 
   const searchHotel = (id, price) => {
-    console.log(id, price, "data");
+    // console.log(id, price, "data");
     router.push({
       pathname: "/xtraInfo",
       query: {
@@ -44,6 +45,7 @@ place as well the manipulated state is carried to next page  */
         startDate: startDate,
         endDate: endDate,
         noOfGuests,
+        name: "hello",
       },
     });
   };
@@ -53,6 +55,15 @@ place as well the manipulated state is carried to next page  */
   const range = `${formattedStartDate} - ${formattedEndDate}`;
 
   // console.log(router.query);
+
+  useEffect(() => {}, []);
+
+  const SortBy = () => {
+    sort
+      ? setSortedPrice(() => searchResults.sort((a, b) => a.price - b.price))
+      : setSortedPrice(() => searchResults.sort((a, b) => b.price - a.price));
+    console.log("sortby", sort);
+  };
 
   return (
     <div>
@@ -69,10 +80,25 @@ place as well the manipulated state is carried to next page  */
           </h1>
 
           <div className=" color  hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
-            <p Onclick={allPicsDisplay} className="button">
+            <p onClick={allPicsDisplay} className="button">
               Types of place
             </p>
-            <p className="button">Price</p>
+            {/* <p onClick={SortBy}  className="button">
+              Sort
+            </p> */}
+            <div className="button">
+              <select
+                // value={sort}
+                onChange={(e) => {
+                  setSort(() => e.target.value === "true");
+                  console.log(sort);
+                  SortBy();
+                }}
+              >
+                <option value={true}>high to Low</option>
+                <option value={false}>Low To High</option>
+              </select>
+            </div>
             <p className="button">Rooms and beds</p>
             <p className="button">More filters</p>
           </div>

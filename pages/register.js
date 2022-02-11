@@ -26,7 +26,9 @@ export default function register() {
       router.push("/login");
 
       console.log(data);
-    } catch (error) {}
+    } catch (error) {
+      window.alert(error.response.data);
+    }
   };
 
   return (

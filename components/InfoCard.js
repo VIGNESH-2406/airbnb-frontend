@@ -13,7 +13,7 @@ function InfoCard({
   id,
 }) {
   return (
-    <div
+    /*location == "Old Goa, Goa, India" ? null :*/ <div
       onClick={() => {
         searchHotel(id, total);
       }}
@@ -27,6 +27,7 @@ function InfoCard({
       <div className="flex flex-col flex-grow pl-5">
         <div className="flex justify-between">
           <p>{location}</p>
+
           <HeartIcon className="h-7 cursor-pointer" />
         </div>
         <h4 className="text-xl">{title}</h4>
@@ -38,7 +39,7 @@ function InfoCard({
         <div className="flex justify-between items-end pt-5">
           <p className="flex items-center">
             <StarIcon className="h-5 text-red-400" />
-            4.5
+            {price >= 25000 ? "5" : price >= 6000 ? "4.5" : "3"}
           </p>
         </div>
         <div>

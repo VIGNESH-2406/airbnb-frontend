@@ -36,7 +36,7 @@ export default function login() {
       }
       console.log(data);
     } catch (error) {
-      toast.error(error, "err here");
+      window.alert(error.response.data);
     }
   };
 
@@ -92,7 +92,7 @@ export default function login() {
           </form>
           {/* links */}
           <div className="flex flex-col items-center">
-            <p clasName="italic">
+            <p className="italic">
               Join us now.
               <NextLink href="/register">
                 <a className="ml-1 text-red-400 hover:underline">
