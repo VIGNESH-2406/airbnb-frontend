@@ -86,7 +86,7 @@ function Header({ placeholder }) {
       </div>
       {/* Middle- searchBar */}
       <div
-        className="flex items-center md:border-2 border-opacity-0 rounded-full py-2 focus:outline-white
+        className="flex items-center md:border-2  rounded-full py-2 focus:outline-white
       md:shadow-sm"
       >
         <input
